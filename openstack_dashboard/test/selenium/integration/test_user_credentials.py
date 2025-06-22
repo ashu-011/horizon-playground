@@ -13,6 +13,7 @@
 from oslo_utils import uuidutils
 import pytest
 from selenium.common import exceptions
+from selenium.webdriver.common.by import By
 
 from openstack_dashboard.test.selenium import widgets
 
