@@ -161,10 +161,10 @@ def test_user_credential_filtration(login, driver, openstack_admin,
     filter_input_field.send_keys('demo')
     driver.find_element_by_id("credentialstable__action_filter").click()
     try:
-        driver.find_element_by_xpath(
+        driver.find_element(By.XPATH,
             "//td[text()='No items to display.']")
-    except(exceptions.NoSuchElementException):
-        assert False, "Message 'No items to display' not found"
+    except exceptions.NoSuchElementException:
+        raise AssertionError("Message 'No items to display' not found")
     filter_input_field = driver.find_element_by_css_selector(".form-control")
     filter_input_field.clear()
     filter_input_field.send_keys('admin')
